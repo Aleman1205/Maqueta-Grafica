@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@300;400;600&display=swap');
+
+:root{
+  --bg-1:#181313;
+  --bg-2:#2a201d;
+  --ink:#f7efe6;
+  --muted:#e9d7c3;
+  --glow-1:#ffbe64;
+  --glow-2:#ff5a5a;
+  --card:#221a17cc;
+  --chip:#3a2d28;
+  --accent:#ffd7a3;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 600px at 20% 10%, #4a3a34 0%, transparent 60%),
+    radial-gradient(1000px 600px at 80% 20%, #3b2f2b 0%, transparent 60%),
+    linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  overflow-x:hidden;
+}
+
+.page{display:flex;flex-direction:column;min-height:100vh}
+
+.hero{
+  position:relative;
+  min-height:58vh;
+  display:grid;
+  place-items:center;
+  padding:6rem 1rem 3rem;
+  isolation:isolate;
+}
+
+.hero-art{
+  position:absolute; inset:0;
+  background-size:cover; background-position:center;
+  opacity:.65; filter:contrast(110%) saturate(105%);
+  z-index:-2;
+}
+
+.hero-art::after{
+  content:"";
+  position:absolute; inset:0;
+  background:radial-gradient(60% 60% at 20% 30%, #ff9e5a33 0%, transparent 60%),
+             radial-gradient(40% 40% at 80% 50%, #ff5a5a22 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.hero svg{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  z-index:-1;
+  mix-blend-mode:screen;
+}
+
+.flow{
+  fill:none;
+  stroke:url(#glow);
+  stroke-width:3.5;
+  filter:drop-shadow(0 0 6px #ffb974);
+  stroke-dasharray:1200 1200;
+  animation:dash 12s linear infinite;
+  opacity:.85;
+}
+.flow:nth-child(1){animation-duration:14s}
+.flow:nth-child(2){animation-duration:18s}
+.flow:nth-child(3){animation-duration:22s}
+
+@keyframes dash{
+  0%{stroke-dashoffset:0}
+  100%{stroke-dashoffset:-2400}
+}
+
+.heart path{
+  fill:#ff6a5a;
+  filter:drop-shadow(0 0 12px rgba(255,100,70,.45));
+  opacity:.8;
+  transform-origin:center;
+  animation:pulse 3.2s ease-in-out infinite;
+}
+.heart:nth-of-type(2) path{animation-delay:.8s}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.06)}
+}
+
+.hero-copy{
+  text-align:center;
+  max-width:900px;
+}
+h1{
+  font-family:Fraunces,serif;
+  font-size:clamp(2rem,4vw,3.4rem);
+  line-height:1.08;
+  margin:0 0 .6rem;
+  letter-spacing:.2px;
+}
+.subtitle{
+  margin:.25rem auto 0;
+  color:var(--muted);
+  font-weight:300;
+  max-width:52ch;
+}
+
+.chips{
+  display:flex; gap:.6rem; flex-wrap:wrap;
+  justify-content:center;
+  margin:-1.5rem auto 1.25rem;
+  padding:0 1rem;
+}
+.chip{
+  background:var(--chip);
+  color:var(--accent);
+  border:1px solid #ffffff22;
+  padding:.45rem .8rem;
+  border-radius:999px;
+  letter-spacing:.3px;
+  font-size:.9rem;
+}
+
+.deck{
+  width:min(1100px,92vw);
+  margin:1rem auto 2.5rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1rem;
+}
+.card{
+  background:var(--card);
+  border:1px solid #ffffff1a;
+  border-radius:18px;
+  padding:1.1rem 1rem 1.15rem;
+  backdrop-filter: blur(6px) saturate(120%);
+  box-shadow: 0 8px 30px rgba(0,0,0,.25);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.card:hover{transform:translateY(-4px); box-shadow:0 12px 36px rgba(0,0,0,.35)}
+.card h3{
+  margin:.2rem 0 .4rem; font-weight:600; letter-spacing:.2px;
+}
+.card blockquote{
+  margin:.4rem 0 .6rem; color:var(--accent); font-family:Fraunces,serif;
+}
+
+/* NUEVO: estilos del ensayo */
+.essay{
+  width:min(960px,90vw);
+  margin:0 auto 2.5rem;
+  padding:1.5rem 1.25rem;
+  background:linear-gradient(180deg, #221a17ee, #201814ee);
+  border:1px solid #ffffff18;
+  border-radius:18px;
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
+}
+.essay h2{
+  font-family:Fraunces,serif;
+  margin:.25rem 0 0.5rem;
+  letter-spacing:.3px;
+}
+.essay p{
+  margin:.65rem 0;
+  color:#ecdcc8;
+  line-height:1.6;
+}
+.essay .closing{
+  color:#ffd7a3;
+  border-left:3px solid #ffd7a3;
+  padding-left:.75rem;
+}
+
+.foot{
+  text-align:center; color:#cdb8a4;
+  padding:2rem 1rem 3rem;
+  font-size:.95rem;
+  border-top:1px dashed #ffffff18;
+  margin-top:auto;
+}
