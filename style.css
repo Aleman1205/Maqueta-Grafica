@@ -148,7 +148,6 @@ h1{
   margin:.4rem 0 .6rem; color:var(--accent); font-family:Fraunces,serif;
 }
 
-/* NUEVO: estilos del ensayo */
 .essay{
   width:min(960px,90vw);
   margin:0 auto 2.5rem;
